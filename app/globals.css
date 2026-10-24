@@ -1,0 +1,209 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* 4-Layer Surface Palette */
+  --bg-canvas: #07080A;
+  --bg-panel: #0D0F14;
+  --bg-control: #13161E;
+  --bg-glass: rgba(15, 18, 25, 0.78);
+
+  /* Spatial Border Tokens */
+  --border-subtle: rgba(255, 255, 255, 0.06);
+  --border-default: rgba(255, 255, 255, 0.10);
+  --border-strong: rgba(255, 255, 255, 0.18);
+  --border-accent: rgba(16, 185, 129, 0.35);
+
+  /* Text & Foreground Tokens */
+  --text-primary: #F3F4F6;
+  --text-secondary: #9CA3AF;
+  --text-muted: #6B7280;
+  --text-inverse: #07080A;
+
+  /* Semantic Accents */
+  --accent-primary: #10B981;
+  --accent-primary-hover: #059669;
+  --accent-primary-bevel: #065F46;
+  --accent-primary-glow: rgba(16, 185, 129, 0.25);
+
+  --accent-warning: #F59E0B;
+  --accent-warning-hover: #D97706;
+  --accent-warning-bevel: #B45309;
+  --accent-warning-glow: rgba(245, 158, 11, 0.25);
+
+  --accent-danger: #F43F5E;
+  --accent-danger-hover: #E11D48;
+  --accent-danger-bevel: #9F1239;
+  --accent-danger-glow: rgba(244, 63, 94, 0.25);
+
+  --accent-telemetry: #06B6D4;
+  --accent-telemetry-hover: #0891B2;
+  --accent-telemetry-bevel: #0E7490;
+  --accent-telemetry-glow: rgba(6, 182, 212, 0.25);
+
+  /* Client Paper SOW Mode Tokens */
+  --paper-bg: #FAF9F6;
+  --paper-text: #111827;
+  --paper-secondary: #4B5563;
+  --paper-border: #E5E7EB;
+  --paper-accent: #059669;
+
+  /* Typography Fallbacks */
+  --font-space-grotesk: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-grotesk: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-jakarta: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-jetbrains-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  --font-jetbrains: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+/* Base Body Setup */
+body {
+  background-color: var(--bg-canvas);
+  color: var(--text-primary);
+  font-family: var(--font-jakarta);
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* Tabular Numerals Utility */
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Tactile 3D Extruded Keycap: Emerald Action (Snap Scope) */
+.keycap-emerald {
+  background: var(--accent-primary);
+  color: #07080A;
+  font-weight: 600;
+  border: 1px solid rgba(16, 185, 129, 0.5);
+  box-shadow: 0 4px 0 #065F46, 0 8px 20px rgba(16, 185, 129, 0.25);
+  transform: translateY(0);
+  transition: transform 60ms ease-out, box-shadow 60ms ease-out, background-color 150ms ease;
+  user-select: none;
+}
+
+.keycap-emerald:hover {
+  background: var(--accent-primary-hover);
+}
+
+.keycap-emerald:active,
+.keycap-emerald.is-pressed {
+  box-shadow: 0 1px 0 #065F46, 0 2px 8px rgba(16, 185, 129, 0.15);
+  transform: translateY(3px);
+}
+
+/* Tactile 3D Extruded Keycap: Neutral / Shortcut (Cmd, Enter, K) */
+.keycap-neutral {
+  background: var(--bg-control);
+  color: var(--text-primary);
+  border: 1px solid var(--border-default);
+  box-shadow: 0 3px 0 #07080A, 0 6px 12px rgba(0, 0, 0, 0.45);
+  transform: translateY(0);
+  transition: transform 60ms ease-out, box-shadow 60ms ease-out, border-color 150ms ease;
+  user-select: none;
+}
+
+.keycap-neutral:hover {
+  border-color: var(--border-strong);
+}
+
+.keycap-neutral:active,
+.keycap-neutral.is-pressed {
+  box-shadow: 0 1px 0 #07080A, 0 2px 4px rgba(0, 0, 0, 0.2);
+  transform: translateY(2px);
+}
+
+/* Tactile Stepper Keycap (- / + Hour Steppers) */
+.keycap-stepper {
+  background: var(--bg-control);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-subtle);
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.6);
+  transform: translateY(0);
+  transition: transform 50ms ease-out, box-shadow 50ms ease-out, color 100ms ease;
+  user-select: none;
+}
+
+.keycap-stepper:hover {
+  color: var(--text-primary);
+  border-color: var(--border-default);
+}
+
+.keycap-stepper:active {
+  box-shadow: 0 0 0 transparent;
+  transform: translateY(2px);
+}
+
+/* Frosted Glass Surface Utility */
+.glass-panel {
+  background: var(--bg-glass);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-subtle);
+}
+
+/* Tactile Noise Texture Background */
+.bg-noise {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* Sleek Obsidian Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-canvas);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.22);
+}
+
+/* Print Overrides for Client Paper SOW */
+@media print {
+  body {
+    background: #FAF9F6 !important;
+    color: #111827 !important;
+  }
+
+  .flip-stage-container {
+    perspective: none !important;
+    transform: none !important;
+  }
+
+  .flip-card-body {
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .studio-dark-view {
+    display: none !important;
+  }
+
+  .paper-sow-view {
+    display: block !important;
+    transform: none !important;
+    background: #FAF9F6 !important;
+    color: #111827 !important;
+    box-shadow: none !important;
+    border: none !important;
+    width: 100% !important;
+    padding: 0 !important;
+  }
+
+  header,
+  nav,
+  .telemetry-pill,
+  .tactile-button,
+  .no-print {
+    display: none !important;
+  }
+}

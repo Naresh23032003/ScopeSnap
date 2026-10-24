@@ -1,0 +1,31 @@
+{
+  "name": "scopesnap",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "typecheck": "tsc --noEmit",
+    "verify:hygiene": "node scripts/verify-hygiene.js"
+  },
+  "dependencies": {
+    "clsx": "2.1.1",
+    "framer-motion": "11.11.0",
+    "lucide-react": "0.468.0",
+    "next": "15.5.19",
+    "react": "19.2.7",
+    "react-dom": "19.2.7",
+    "tailwind-merge": "2.6.1",
+    "zod": "3.25.76"
+  },
+  "devDependencies": {
+    "@types/node": "22.10.2",
+    "@types/react": "19.2.18",
+    "@types/react-dom": "19.2.3",
+    "autoprefixer": "10.4.20",
+    "postcss": "8.4.44",
+    "tailwindcss": "3.4.19",
+    "typescript": "5.7.2"
+  }
+}

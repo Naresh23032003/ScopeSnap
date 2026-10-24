@@ -1,0 +1,55 @@
+# ==============================================================================
+# ScopeSnap .gitignore
+# Strictly protects secrets, dependencies, build artifacts, and agent metadata
+# ==============================================================================
+
+# Dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# Testing
+/coverage
+
+# Next.js Build Outputs
+/.next/
+/out/
+/build
+/dist
+
+# Local Environment & Secrets (CRITICAL SECURITY MANDATE)
+.env*.local
+.env.local
+.env
+*.pem
+*.key
+
+# Internal Agent Coordination & Sensitive Request Dumps
+/.agents/
+ORIGINAL_REQUEST.md
+TEST_INFRA.md
+TEST_READY.md
+
+# Debug & Execution Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+*.log
+
+# Vercel & Deployment
+.vercel
+
+# TypeScript & Cache
+*.tsbuildinfo
+next-env.d.ts
+
+# OS & Editor Files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sw?
